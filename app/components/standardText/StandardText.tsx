@@ -11,6 +11,7 @@ interface Props {
 export default function StandardText(props: Props): React.ReactElement {
   const defaultStyle = {
     color: props.colour,
+    fontFamily: 'HammersmithOne',
     fontSize: props.fontSize
   }
   const customStyle = [props.style, defaultStyle];

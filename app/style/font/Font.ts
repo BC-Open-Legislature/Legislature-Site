@@ -19,4 +19,4 @@ const FontSize = {
 
 const Font = { FontSize };
 
-export { Font };
+export default Font
