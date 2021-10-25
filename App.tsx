@@ -27,8 +27,8 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <View style={styles.container}>
-          <StatusBar style="auto" />
+        <View style={ styles.container }>
+          <StatusBar style="auto"/>
           <ActivityIndicator></ActivityIndicator>
         </View>
       );

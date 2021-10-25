@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, ScrollView, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, ScrollView, ActivityIndicator, Platform } from 'react-native';
 import { Colours, Font } from '../../style';
 import TopBar from '../../components/TopBar';
 import BottomBar from '../../components/BottomBar'
@@ -42,7 +42,7 @@ export default function MLAScreen () {
           <StatusBar style='auto' />
           <ScrollView style={ styles.containerWithPadding }>
             <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H1 }>{ 'Members Of The Legislative Assembly' }</StandardText>
-            <View style={ styles.memberContainer }>
+            <View style={ [styles.memberContainer, Platform.OS === 'web' ? styles.memberContainerWeb : null] }>
               {members}
             </View>
           </ScrollView>
@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: 15,
     paddingTop: 90,
-    paddingBottom: 42.5,
   },
   memberContainer: {
     height: '100%',
@@ -86,6 +85,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
+    paddingBottom: 127.5,
+  },
+  memberContainerWeb: {
+    paddingBottom: 42.5,
   },
   containerCentered: {
     justifyContent: 'center',

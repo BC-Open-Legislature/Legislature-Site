@@ -31,9 +31,10 @@ export default function MemberListItem(props: Props): React.ReactElement {
 const styles = StyleSheet.create({
   paddedBox: {
     margin: 15,
+    width: 350,
+
     flexDirection: 'row',
     alignItems: 'center',
-    width: 350,
   },
   infoPaddedBox: {
     padding: 15,
@@ -44,7 +45,6 @@ const styles = StyleSheet.create({
     height: 150,
     
     borderColor: Colours.Black[100],
-    borderStyle: 'solid',
     borderWidth: 2.5,
   }
 });
