@@ -1,16 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, StyleProp, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Colours, Font } from '../../style'
 import StandardText from '../StandardText'
 
 enum SelectableOptions {
-  MPs,
+  MLAs,
   Debates,
   Bills
 }
 
 interface Props {
-  selected: "MPs" | "Debates" | "Bills"
+  selected: "MLAs" | "Debates" | "Bills"
 }
 
 export default function TopBar(props: Props): React.ReactElement {

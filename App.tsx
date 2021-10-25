@@ -2,9 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import { Colours } from './app/style';
-import TopBar from './app/components/TopBar';
-import BottomBar from './app/components/BottomBar'
 import * as Font from 'expo-font';
+import MLA from './app/screens/MLA'
 
 export default class App extends React.Component {
 
@@ -23,12 +22,8 @@ export default class App extends React.Component {
   render() {
     if (this.state.isReady) {
       return (
-        // TODO: Navigate To The MP Screen
-        <View style={styles.container}>
-          <StatusBar style="auto" />
-          <TopBar selected={'MPs'} ></TopBar>
-          <BottomBar></BottomBar>
-        </View>
+        // TODO: Navigate To The MLA Screen
+        <MLA></MLA>
       );
     } else {
       return (
