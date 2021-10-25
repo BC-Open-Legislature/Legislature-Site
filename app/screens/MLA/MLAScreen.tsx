@@ -40,7 +40,7 @@ export default function MLAScreen () {
     return (
       <View style={ styles.container }>
           <StatusBar style='auto' />
-          <ScrollView style={ styles.containerWithPadding }>
+          <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
             <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H1 }>{ 'Members Of The Legislative Assembly' }</StandardText>
             <View style={ [styles.memberContainer, Platform.OS === 'web' ? styles.memberContainerWeb : null] }>
               {members}
@@ -78,6 +78,12 @@ const styles = StyleSheet.create({
     padding: 15,
     paddingTop: 90,
   },
+  containerWithPaddingWeb: {
+    height: '100%',
+    width: '100%',
+    padding: 15,
+    paddingTop: 52.5,
+  },
   memberContainer: {
     height: '100%',
     width: '100%',
@@ -96,5 +102,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     textAlign: 'center'
   },
-
 });

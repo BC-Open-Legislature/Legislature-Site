@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Platform } from "react-native";
 import { Colours, Font } from '../../style'
 import StandardText from '../StandardText'
 
@@ -26,12 +26,24 @@ export default function TopBar(props: Props): React.ReactElement {
     }
   }
 
-  return <View style={styles.topBar}>
-    <View style={styles.topBarButtonSpacer}></View>
-    <View style={styles.topBarButtonPanel}>
-      {options}
-    </View>
-  </View>;
+  if (Platform.OS === 'web') {
+    return (
+      <View style={[styles.topBar, styles.topBarWeb]}>
+        <View style={[styles.topBarButtonPanel, styles.topBarButtonPanelWeb]}>
+          {options}
+        </View>
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.topBar}>
+        <View style={styles.topBarButtonSpacer}></View>
+        <View style={styles.topBarButtonPanel}>
+          {options}
+        </View>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -45,6 +57,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     flex: 1
   },
+  topBarWeb: {    
+    height: 37.5,
+  },
   topBarButtonSpacer: {
     flex: 1
   },
@@ -55,6 +70,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignContent: 'space-around'
+  },
+  topBarButtonPanelWeb : {
+    height: '100%',
   },
   topBarButton: {
     fontSize: Font.FontSize.H1,
