@@ -25,10 +25,6 @@ The frontend for the BC open legislature site that scrapes data from the https:/
 This covers the installation for developing the application using the source code.
 
 ---
-### Normal Installation
-This covers the installation of the final app if you want to contribute please see the `Contributing / Source Code Installation` portion.
-
----
 ### Acknowledgements
 This idea and the site design is 100% based on the incredible Canadian open parliament project by Michael Mulley 
 https://github.com/michaelmulley/openparliament
