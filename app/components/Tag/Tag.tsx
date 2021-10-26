@@ -4,7 +4,6 @@ import StandardText from '../StandardText'
 import { Colours, Font } from '../../style/'
 
 interface Props {
-  children: React.ReactNode,
   type: (
     'Greens' | 'NDP' | 'BCLiberals' | 'OtherParty' | 'Independent' |
     'Yes' | 'No' | 'Other' | 'None'
@@ -26,7 +25,7 @@ export default function Tag(props: Props): React.ReactElement {
 
   return (
     <View style={ style.viewStyle }>
-      <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.TagH1 } >{ props.children }</StandardText>
+      <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.TagH1 } >{ props.type }</StandardText>
     </View>
   );
 }
