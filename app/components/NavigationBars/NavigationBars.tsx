@@ -9,7 +9,7 @@ interface Props {
 
 export default function NavigationBars(props: Props): React.ReactElement {
   return (
-    <View> 
+    <View style={{height: '100%', width: '100%'}}> 
       {props.children}
       <TopBar></TopBar>
       <BottomBar></BottomBar>
