@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Platform } from "react-native";
+import {useRoute} from '@react-navigation/native';
 import { Colours, Font } from '../../style'
 import StandardText from '../StandardText'
 
@@ -9,16 +10,12 @@ enum SelectableOptions {
   Bills
 }
 
-interface Props {
-  selected: "MLAs" | "Debates" | "Bills"
-}
-
-export default function TopBar(props: Props): React.ReactElement {
+export default function TopBar(): React.ReactElement {
   let options = []
   for (let selectableOption in SelectableOptions) {
     if (isNaN(Number(selectableOption))) {
       options.push(<StandardText 
-        colour={selectableOption.toLocaleLowerCase() != props.selected.toLocaleLowerCase() ? Colours.Secondary[100] : Colours.Tertiary[100]} 
+        colour={selectableOption.toLocaleLowerCase() != useRoute().name.split('/')[0].toLocaleLowerCase() ? Colours.Secondary[100] : Colours.Tertiary[100]} 
         fontSize={Font.FontSize.H1} 
         style={styles.topBarButton}
         key={selectableOption}

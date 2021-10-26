@@ -2,8 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, ScrollView, ActivityIndicator, Platform } from 'react-native';
 import { Colours, Font } from '../../style';
-import TopBar from '../../components/TopBar';
-import BottomBar from '../../components/BottomBar'
+import NavigationBars from '../../components/NavigationBars';
 import StandardText from '../../components/StandardText'
 import MemberListItem from '../../components/MemberListItem';
 import { apiURL } from '../../constants/Constants'
@@ -32,26 +31,30 @@ export default function MLAScreen ({ navigation }) {
           name={ member.name }
           party={ member.member_data.party }
           titles={ member.member_data.titles }
-          onPress={ () => navigation.navigate('Member', member) }
+          onPress={ () => navigation.navigate('MLAs/Member', member) }
           key={ member['abreviated_name'] }
         ></MemberListItem>
       )
     })
 
     return (
-      <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
-        <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H1 }>{ 'Members Of The Legislative Assembly' }</StandardText>
-        <View style={ [styles.memberContainer, Platform.OS === 'web' ? styles.memberContainerWeb : null] }>
-          { members }
-        </View>
-      </ScrollView>
+      <NavigationBars>
+        <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
+          <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H1 }>{ 'Members Of The Legislative Assembly' }</StandardText>
+          <View style={ [styles.memberContainer, Platform.OS === 'web' ? styles.memberContainerWeb : null] }>
+            { members }
+          </View>
+        </ScrollView>
+      </NavigationBars>
     );
   } else {
     return (
-      <View style={ styles.containerCentered }>
-        <ActivityIndicator size='large' color={ Colours.Black[100] } />
-        <StandardText colour={ Colours.Black[80] } fontSize={ Font.FontSize.H1 }>{ 'Loading...' }</StandardText>
-      </View>
+      <NavigationBars>
+        <View style={ styles.containerCentered }>
+          <ActivityIndicator size='large' color={ Colours.Black[100] } />
+          <StandardText colour={ Colours.Black[80] } fontSize={ Font.FontSize.H1 }>{ 'Loading...' }</StandardText>
+        </View>
+      </NavigationBars>
     )
   }
 }

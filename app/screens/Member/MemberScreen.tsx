@@ -2,8 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, ScrollView, ActivityIndicator, Platform } from 'react-native';
 import { Colours, Font } from '../../style';
-import TopBar from '../../components/TopBar';
-import BottomBar from '../../components/BottomBar'
+import NavigationBars from '../../components/NavigationBars';
 import StandardText from '../../components/StandardText'
 import { apiURL } from '../../constants/Constants'
 
@@ -27,15 +26,19 @@ export default function MemberScreen ({ route, navigation }) {
     
   if (hasRecentMemberData === true) {
     return (
-      <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
-      </ScrollView>
+      <NavigationBars>
+        <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
+        </ScrollView>
+      </NavigationBars>
     )
   } else {
     return (
-      <View style={ [styles.container, styles.containerCentered] }>
-        <ActivityIndicator size='large' color={ Colours.Black[100] } />
-        <StandardText colour={ Colours.Black[80] } fontSize={ Font.FontSize.H1 }>{ 'Loading...' }</StandardText>
-      </View>
+      <NavigationBars>
+        <View style={ [styles.container, styles.containerCentered] }>
+          <ActivityIndicator size='large' color={ Colours.Black[100] } />
+          <StandardText colour={ Colours.Black[80] } fontSize={ Font.FontSize.H1 }>{ 'Loading...' }</StandardText>
+        </View>
+      </NavigationBars>
     )
   }
 }
