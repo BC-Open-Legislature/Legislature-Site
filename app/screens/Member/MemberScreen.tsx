@@ -5,52 +5,36 @@ import { Colours, Font } from '../../style';
 import TopBar from '../../components/TopBar';
 import BottomBar from '../../components/BottomBar'
 import StandardText from '../../components/StandardText'
-import MemberListItem from '../../components/MemberListItem';
 import { apiURL } from '../../constants/Constants'
 
-export default function MLAScreen ({ navigation }) {
-  const [hasMemberData, setHasMemberData] = useState(false);;
-  const [memberData, setMemberData] = useState([]);
+export default function MemberScreen ({ route, navigation }) {
+  const memberData = route.params;
 
-  const getMemberData = async () => {
-    const data = await fetch(`${apiURL}mla`)
-    setMemberData(await data.json());
-    setHasMemberData(true);
+  const [hasRecentMemberData, setHasRecentMemberData] = useState(false);;
+  const [recentMemberData, setRecentMemberData] = useState([]);
+
+  const getRecentMemberData = async () => {
+    const data = await fetch(
+      `${apiURL}mla/${memberData.abreviated_name}/recent_data`
+    )
+    setRecentMemberData(await data.json());
+    setHasRecentMemberData(true);
   }
   
   useEffect(() => {
-    getMemberData();
+    getRecentMemberData();
   }, []);
     
-  if (hasMemberData === true) {
-    let members: any[] = []
-    memberData.forEach(member => {
-      members.push(
-        <MemberListItem
-          iconURL={ member.image }
-          location={ member.member_data.location }
-          name={ member.name }
-          party={ member.member_data.party }
-          titles={ member.member_data.titles }
-          onPress={ () => navigation.navigate('Member', member) }
-          key={ member['abreviated_name'] }
-        ></MemberListItem>
-      )
-    })
-
+  if (hasRecentMemberData === true) {
     return (
       <View style={ styles.container }>
           <StatusBar style='auto' />
           <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
-            <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H1 }>{ 'Members Of The Legislative Assembly' }</StandardText>
-            <View style={ [styles.memberContainer, Platform.OS === 'web' ? styles.memberContainerWeb : null] }>
-              { members }
-            </View>
           </ScrollView>
           <TopBar selected={'MLAs'} ></TopBar>
           <BottomBar></BottomBar>
       </View>
-    );
+    )
   } else {
     return (
       <View style={ styles.container }>
