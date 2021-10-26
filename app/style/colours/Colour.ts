@@ -34,12 +34,13 @@ const Black = {
   50: '#8b8b8b'
 }
 
+// FIXME: When Updating The Party Or Option Colours Update The Tag.tsx Options
 const Party = {
   Greens: '#b1f492',
   NDP: '#f4c192',
   BCLiberals: '#9296f4',
   // NOTE: Used For Mainly For The Conservative Party
-  Other: '#d592f4',
+  OtherParty: '#d592f4',
   Independent: '#b7b7b7'
 }
 
