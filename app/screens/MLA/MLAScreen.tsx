@@ -8,7 +8,7 @@ import StandardText from '../../components/StandardText'
 import MemberListItem from '../../components/MemberListItem';
 import { apiURL } from '../../constants/Constants'
 
-export default function MLAScreen () {
+export default function MLAScreen ({ navigation }) {
   const [hasMemberData, setHasMemberData] = useState(false);;
   const [memberData, setMemberData] = useState([]);
 
@@ -27,12 +27,13 @@ export default function MLAScreen () {
     memberData.forEach(member => {
       members.push(
         <MemberListItem
-          iconURL={member['image']}
-          location={member['member_data']['location']}
-          name={member['name']}
-          party={member['member_data']['party']}
-          titles={member['member_data']['titles']}
-          key={member['abreviated_name']}
+          iconURL={ member['image'] }
+          location={ member['member_data']['location'] }
+          name={ member['name'] }
+          party={ member['member_data']['party'] }
+          titles={ member['member_data']['titles'] }
+          onPress={ () => navigation.navigate('Member', member) }
+          key={ member['abreviated_name'] }
         ></MemberListItem>
       )
     })
@@ -43,7 +44,7 @@ export default function MLAScreen () {
           <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
             <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H1 }>{ 'Members Of The Legislative Assembly' }</StandardText>
             <View style={ [styles.memberContainer, Platform.OS === 'web' ? styles.memberContainerWeb : null] }>
-              {members}
+              { members }
             </View>
           </ScrollView>
           <TopBar selected={'MLAs'} ></TopBar>
@@ -52,14 +53,14 @@ export default function MLAScreen () {
     );
   } else {
     return (
-      <View style={styles.container}>
+      <View style={ styles.container }>
         <StatusBar style='auto' />
-        <View style={[styles.container, styles.containerCentered]}>
-          <ActivityIndicator size='large' color={Colours.Black[100]} />
-          <StandardText colour={Colours.Black[80]} fontSize={Font.FontSize.H1}>{'Loading...'}</StandardText>
+        <View style={ [styles.container, styles.containerCentered] }>
+          <ActivityIndicator size='large' color={ Colours.Black[100] } />
+          <StandardText colour={ Colours.Black[80] } fontSize={ Font.FontSize.H1 }>{ 'Loading...' }</StandardText>
         </View>
         
-        <TopBar selected={'MLAs'} ></TopBar>
+        <TopBar selected={ 'MLAs' } ></TopBar>
         <BottomBar></BottomBar>
       </View>
     )

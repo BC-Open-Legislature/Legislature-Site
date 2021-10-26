@@ -12,7 +12,8 @@ export default function StandardText(props: Props): React.ReactElement {
   const defaultStyle = {
     color: props.colour,
     fontFamily: 'HammersmithOne',
-    fontSize: props.fontSize
+    fontSize: props.fontSize,
+    textDecorationLine: 'underline',
   }
   const customStyle = [props.style, defaultStyle];
   

@@ -1,7 +1,8 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
 import { Colours, Font } from '../../style';
 import StandardText from '../StandardText';
+import ClickableStandardText from '../ClickableStandardText'
 
 interface Props {
   iconURL: string,
@@ -9,22 +10,25 @@ interface Props {
   titles?: string,
   party: string,
   location: string
+  onPress: () => null
 }
 
 export default function MemberListItem(props: Props): React.ReactElement {
   return (
-    <View style={ styles.paddedBox }>
-      <Image
-        style={ styles.icon } 
-        source={ { uri: props.iconURL } }
-      ></Image>
-      <View style={ styles.infoPaddedBox }>
-        <StandardText colour={ Colours.Clickable.Clickable } fontSize={ Font.FontSize.ClickableH1 } >{ props.name }</StandardText>
-        { props.titles != "" ? ( <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H2 } >{ props.titles }</StandardText> ) : null }
-        <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H2 } >{ `${props.party} MLA for` }</StandardText>
-        <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H2 } >{ props.location }</StandardText>
+    <TouchableHighlight onPress={props.onPress} underlayColor="white">
+      <View style={ styles.paddedBox }>
+        <Image
+          style={ styles.icon } 
+          source={ { uri: props.iconURL } }
+        ></Image>
+        <View style={ styles.infoPaddedBox }>
+          <ClickableStandardText colour={ Colours.Clickable.Clickable } fontSize={ Font.FontSize.ClickableH1 } >{ props.name }</ClickableStandardText>
+          { props.titles !== "" ? ( <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H2 } >{ props.titles }</StandardText> ) : null }
+          <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H2 } >{ `${props.party} MLA for` }</StandardText>
+          <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H2 } >{ props.location }</StandardText>
         </View>
-    </View>
+      </View>
+    </TouchableHighlight>
   )
 }
 

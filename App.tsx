@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import { Colours } from './app/style';
 import * as Font from 'expo-font';
-import MLA from './app/screens/MLA'
+import Navigator from './app/navigation/Navigation';
 
 export default class App extends React.Component {
 
@@ -22,8 +22,7 @@ export default class App extends React.Component {
   render() {
     if (this.state.isReady) {
       return (
-        // TODO: Navigate To The MLA Screen
-        <MLA></MLA>
+        <Navigator></Navigator>
       );
     } else {
       return (
