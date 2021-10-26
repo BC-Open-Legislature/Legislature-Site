@@ -36,7 +36,7 @@ export default function MemberScreen ({ route, navigation }) {
     });
 
     return (
-      <NavigationBars>
+      <NavigationBars navigator={ navigation }>
         <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
           <MemberProfile 
             iconURL={ memberData.image }
@@ -62,7 +62,7 @@ export default function MemberScreen ({ route, navigation }) {
     )
   } else {
     return (
-      <NavigationBars>
+      <NavigationBars navigator={ navigation }>
         <View style={ [styles.container, styles.containerCentered] }>
           <ActivityIndicator size='large' color={ Colours.Black[100] } />
           <StandardText colour={ Colours.Black[80] } fontSize={ Font.FontSize.H1 }>{ 'Loading...' }</StandardText>

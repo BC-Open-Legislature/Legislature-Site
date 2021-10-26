@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, View, Platform } from "react-native";
-import {useRoute} from '@react-navigation/native';
+import { StyleSheet, View, Platform, TouchableHighlight } from "react-native";
+import { useRoute } from '@react-navigation/native';
 import { Colours, Font } from '../../style'
 import StandardText from '../StandardText'
 
@@ -10,33 +10,48 @@ enum SelectableOptions {
   Bills
 }
 
-export default function TopBar(): React.ReactElement {
+interface Props {
+  navigator: any;
+}
+
+
+export default function TopBar(props: Props): React.ReactElement {
   let options = []
   for (let selectableOption in SelectableOptions) {
     if (isNaN(Number(selectableOption))) {
-      options.push(<StandardText 
-        colour={selectableOption.toLocaleLowerCase() != useRoute().name.split('/')[0].toLocaleLowerCase() ? Colours.Secondary[100] : Colours.Tertiary[100]} 
-        fontSize={Font.FontSize.H1} 
-        style={styles.topBarButton}
-        key={selectableOption}
-      >{selectableOption}</StandardText>)
+        options.push(
+        <TouchableHighlight 
+          style={ { flex: 1 } } 
+          onPress={ () => { props.navigator.navigate(selectableOption) } } 
+          underlayColor={ null } 
+          key={ selectableOption }
+        >
+          <StandardText 
+            colour={ selectableOption.toLocaleLowerCase() != useRoute().name.split('/')[0].toLocaleLowerCase() ? Colours.Secondary[100] : Colours.Tertiary[100] } 
+            fontSize={ Font.FontSize.H1 } 
+            style={ styles.topBarButton }
+          >
+            { selectableOption }
+          </StandardText>
+        </TouchableHighlight>
+      )
     }
   }
 
   if (Platform.OS === 'web') {
     return (
-      <View style={[styles.topBar, styles.topBarWeb]}>
-        <View style={[styles.topBarButtonPanel, styles.topBarButtonPanelWeb]}>
-          {options}
+      <View style={ [styles.topBar, styles.topBarWeb] }>
+        <View style={ [styles.topBarButtonPanel, styles.topBarButtonPanelWeb] }>
+          { options }
         </View>
       </View>
     );
   } else {
     return (
-      <View style={styles.topBar}>
-        <View style={styles.topBarButtonSpacer}></View>
-        <View style={styles.topBarButtonPanel}>
-          {options}
+      <View style={ styles.topBar }>
+        <View style={ styles.topBarButtonSpacer }></View>
+        <View style={ styles.topBarButtonPanel }>
+          { options }
         </View>
       </View>
     );

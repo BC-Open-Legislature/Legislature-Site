@@ -38,7 +38,7 @@ export default function MLAScreen ({ navigation }) {
     })
 
     return (
-      <NavigationBars>
+      <NavigationBars navigator={ navigation }>
         <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
           <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H1 }>{ 'Members Of The Legislative Assembly' }</StandardText>
           <View style={ [styles.memberContainer, Platform.OS === 'web' ? styles.memberContainerWeb : null] }>
@@ -49,7 +49,7 @@ export default function MLAScreen ({ navigation }) {
     );
   } else {
     return (
-      <NavigationBars>
+      <NavigationBars navigator={ navigation }>
         <View style={ styles.containerCentered }>
           <ActivityIndicator size='large' color={ Colours.Black[100] } />
           <StandardText colour={ Colours.Black[80] } fontSize={ Font.FontSize.H1 }>{ 'Loading...' }</StandardText>
