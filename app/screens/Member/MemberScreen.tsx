@@ -3,13 +3,14 @@ import { StyleSheet, View, ScrollView, ActivityIndicator, Platform } from 'react
 import { Colours, Font, Layout } from '../../style';
 import NavigationBars from '../../components/NavigationBars';
 import StandardText from '../../components/StandardText'
+import TextShowMoreButton from '../../components/TextShowMoreButton';
 import { apiURL } from '../../constants/Constants'
 import MemberProfile from '../../components/MemberProfile';
 
 export default function MemberScreen ({ route, navigation }) {
   const memberData = route.params;
 
-  const [hasRecentMemberData, setHasRecentMemberData] = useState(false);;
+  const [hasRecentMemberData, setHasRecentMemberData] = useState(false);
   const [recentMemberData, setRecentMemberData] = useState([]);
 
   const getRecentMemberData = async () => {
@@ -35,10 +36,10 @@ export default function MemberScreen ({ route, navigation }) {
             party={ memberData.member_data.party }
             titles={ memberData.member_data.titles }
           ></MemberProfile>
-          <View style={{ padding: Layout.Spacing.x1, paddingLeft: Layout.Spacing.x3 }}>
+          <View style={{paddingLeft: Layout.Spacing.x3 }}>
             <StandardText colour={ Colours.Clickable.Clickable } fontSize={ Font.FontSize.H2 }>{ 'About' }</StandardText>
             <View style={{paddingLeft: Layout.Spacing.x1 }}>
-              <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H2 }>{ memberData.about }</StandardText>
+              <TextShowMoreButton fontSize={ Font.FontSize.H2 }>{ memberData.about }</TextShowMoreButton>
             </View>
           </View>
         </ScrollView>
