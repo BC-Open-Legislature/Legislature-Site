@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, ScrollView, ActivityIndicator, Platform } from 'react-native';
-import { Colours, Font } from '../../style';
+import { Colours, Font, Layout } from '../../style';
 import NavigationBars from '../../components/NavigationBars';
 import StandardText from '../../components/StandardText'
 import { apiURL } from '../../constants/Constants'
@@ -35,6 +35,12 @@ export default function MemberScreen ({ route, navigation }) {
             party={ memberData.member_data.party }
             titles={ memberData.member_data.titles }
           ></MemberProfile>
+          <View style={{ padding: Layout.Spacing.x1, paddingLeft: Layout.Spacing.x3 }}>
+            <StandardText colour={ Colours.Clickable.Clickable } fontSize={ Font.FontSize.H2 }>{ 'About' }</StandardText>
+            <View style={{paddingLeft: Layout.Spacing.x1 }}>
+              <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H2 }>{ memberData.about }</StandardText>
+            </View>
+          </View>
         </ScrollView>
       </NavigationBars>
     )
@@ -68,22 +74,10 @@ const styles = StyleSheet.create({
     padding: 15,
     paddingTop: 52.5,
   },
-  memberContainer: {
-    height: '100%',
-    width: '100%',
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    paddingBottom: 127.5,
-  },
-  memberContainerWeb: {
-    paddingBottom: 42.5,
-  },
   containerCentered: {
     justifyContent: 'center',
     alignContent: 'center',
     alignItems: 'center',
     textAlign: 'center'
-  },
+  }
 });
