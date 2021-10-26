@@ -39,41 +39,26 @@ export default function MLAScreen ({ navigation }) {
     })
 
     return (
-      <View style={ styles.container }>
-          <StatusBar style='auto' />
-          <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
-            <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H1 }>{ 'Members Of The Legislative Assembly' }</StandardText>
-            <View style={ [styles.memberContainer, Platform.OS === 'web' ? styles.memberContainerWeb : null] }>
-              { members }
-            </View>
-          </ScrollView>
-          <TopBar selected={'MLAs'} ></TopBar>
-          <BottomBar></BottomBar>
-      </View>
+      <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
+        <StandardText colour={ Colours.Black[100] } fontSize={ Font.FontSize.H1 }>{ 'Members Of The Legislative Assembly' }</StandardText>
+        <View style={ [styles.memberContainer, Platform.OS === 'web' ? styles.memberContainerWeb : null] }>
+          { members }
+        </View>
+      </ScrollView>
     );
   } else {
     return (
-      <View style={ styles.container }>
-        <StatusBar style='auto' />
-        <View style={ [styles.container, styles.containerCentered] }>
-          <ActivityIndicator size='large' color={ Colours.Black[100] } />
-          <StandardText colour={ Colours.Black[80] } fontSize={ Font.FontSize.H1 }>{ 'Loading...' }</StandardText>
-        </View>
-        
-        <TopBar selected={ 'MLAs' } ></TopBar>
-        <BottomBar></BottomBar>
+      <View style={ styles.containerCentered }>
+        <ActivityIndicator size='large' color={ Colours.Black[100] } />
+        <StandardText colour={ Colours.Black[80] } fontSize={ Font.FontSize.H1 }>{ 'Loading...' }</StandardText>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: Colours.Secondary[100],
-    height: '100%',
-    width: '100%',
-  },
   containerWithPadding: {
+    backgroundColor: Colours.Secondary[100],
     height: '100%',
     width: '100%',
     padding: 15,

@@ -27,25 +27,14 @@ export default function MemberScreen ({ route, navigation }) {
     
   if (hasRecentMemberData === true) {
     return (
-      <View style={ styles.container }>
-          <StatusBar style='auto' />
-          <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
-          </ScrollView>
-          <TopBar selected={'MLAs'} ></TopBar>
-          <BottomBar></BottomBar>
-      </View>
+      <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
+      </ScrollView>
     )
   } else {
     return (
-      <View style={ styles.container }>
-        <StatusBar style='auto' />
-        <View style={ [styles.container, styles.containerCentered] }>
-          <ActivityIndicator size='large' color={ Colours.Black[100] } />
-          <StandardText colour={ Colours.Black[80] } fontSize={ Font.FontSize.H1 }>{ 'Loading...' }</StandardText>
-        </View>
-        
-        <TopBar selected={ 'MLAs' } ></TopBar>
-        <BottomBar></BottomBar>
+      <View style={ [styles.container, styles.containerCentered] }>
+        <ActivityIndicator size='large' color={ Colours.Black[100] } />
+        <StandardText colour={ Colours.Black[80] } fontSize={ Font.FontSize.H1 }>{ 'Loading...' }</StandardText>
       </View>
     )
   }
