@@ -4,8 +4,6 @@ import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import { Colours } from './app/style';
 import * as Font from 'expo-font';
 import Navigator from './app/navigation/Navigation';
-import TopBar from './app/components/TopBar';
-import BottomBar from './app/components/BottomBar';
 
 export default class App extends React.Component {
 

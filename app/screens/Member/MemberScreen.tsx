@@ -1,10 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, ScrollView, ActivityIndicator, Platform } from 'react-native';
 import { Colours, Font } from '../../style';
 import NavigationBars from '../../components/NavigationBars';
 import StandardText from '../../components/StandardText'
 import { apiURL } from '../../constants/Constants'
+import MemberProfile from '../../components/MemberProfile';
 
 export default function MemberScreen ({ route, navigation }) {
   const memberData = route.params;
@@ -28,6 +28,13 @@ export default function MemberScreen ({ route, navigation }) {
     return (
       <NavigationBars>
         <ScrollView style={ [styles.containerWithPadding, Platform.OS === 'web' ? styles.containerWithPaddingWeb : null] }>
+          <MemberProfile 
+            iconURL={ memberData.image }
+            location={ memberData.member_data.location }
+            name={ memberData.name }
+            party={ memberData.member_data.party }
+            titles={ memberData.member_data.titles }
+          ></MemberProfile>
         </ScrollView>
       </NavigationBars>
     )
