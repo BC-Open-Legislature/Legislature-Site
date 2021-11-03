@@ -22,7 +22,7 @@ export default function TopBar(props: Props): React.ReactElement {
         options.push(
         <TouchableHighlight 
           style={ { flex: 1 } } 
-          onPress={ () => { props.navigator.navigate(selectableOption) } } 
+          onPress={ () => { props.navigator.push(selectableOption) } } 
           underlayColor={ null } 
           key={ selectableOption }
         >

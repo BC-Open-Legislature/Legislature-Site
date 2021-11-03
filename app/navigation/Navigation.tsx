@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MLAScreen from '../screens/MLA';
 import MemberScreen from '../screens/Member';
+import DebatesScreen from '../screens/Debates';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,10 @@ export default function Navigator () {
           <Stack.Screen
               name="MLAs/Member"
               component={ MemberScreen }
+          />
+          <Stack.Screen
+              name="Debates"
+              component={ DebatesScreen }
           />
         </Stack.Navigator>
       </NavigationContainer>
