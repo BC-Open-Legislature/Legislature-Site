@@ -1,15 +1,7 @@
+# -=- Main Ignores -=-
 node_modules/
-.expo/
-npm-debug.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-*.orig.*
-web-build/
 
-# macOS
+# -=- Mac Specific Ignores -=-
 .DS_Store
 
 # -=- My Device Specfic Ignores -=- 
