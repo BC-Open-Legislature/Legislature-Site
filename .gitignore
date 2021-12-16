@@ -1,5 +1,6 @@
 # -=- Main Ignores -=-
 node_modules/
+**/.next/
 
 # -=- Mac Specific Ignores -=-
 .DS_Store
