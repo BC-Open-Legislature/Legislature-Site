@@ -9,7 +9,7 @@ npm-debug.*
 *.orig.*
 web-build/
 
-# macOS
+# -=- Mac Specific Ignores -=-
 .DS_Store
 
 # -=- My Device Specfic Ignores -=- 
