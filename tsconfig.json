@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "jsx": "react-native",
+    "lib": ["dom", "esnext"],
+    "moduleResolution": "node",
+  },
+  "extends": "expo/tsconfig.base"
+}
