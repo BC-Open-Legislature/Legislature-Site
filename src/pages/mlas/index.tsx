@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { apiURL } from '../../constants/constants';
+import MemberPortion from '../../components/MemberPortion';
 
 interface specificMLAData {
   abreviated_name: string,
@@ -17,7 +18,18 @@ const MLAPage = (props: { mlaData: specificMLAData[] }) => {
   const { mlaData } = props;
 
   return (
-    <div className="h-full" />
+    <div className="h-max flex flex-col gap-2 text-black-800 m-12 font-light">
+      <div className="max-w-6xl w-full h-min font-bold text-4xl mx-auto mb-5">
+        <h1>Current Members of the Legislative Assembly</h1>
+      </div>
+      <div className="max-w-6xl w-full h-max mx-auto mb-5 flex gap-10 flex-wrap">
+        {
+          mlaData.map((memberData) => (
+            <MemberPortion mlaData={memberData} />
+          ))
+        }
+      </div>
+    </div>
   );
 };
 

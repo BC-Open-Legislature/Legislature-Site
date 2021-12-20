@@ -9,6 +9,7 @@ const MainApp = ({ Component, pageProps }: AppProps) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <div className="bg-secondary-900 font-helvetica flex flex-col h-screen">
     <NavigationBar />
+    <div className="mb-14" />
     <Component {...pageProps} />
   </div>
 );

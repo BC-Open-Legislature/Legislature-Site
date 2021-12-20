@@ -1,7 +1,7 @@
 import React from 'react';
 
 const IndexPage = () => (
-  <div className="h-full flex flex-col gap-2 text-black-800 m-12 font-normal">
+  <div className="h-full flex flex-col gap-2 text-black-800 m-12 font-light">
     <div className="max-w-6xl w-full h-min font-bold text-4xl grid grid-cols-5 gap-4 main-col mx-auto mb-5">
       <h1 className="main-col-main col-span-3">Keeping tabs on our Legislature.</h1>
     </div>

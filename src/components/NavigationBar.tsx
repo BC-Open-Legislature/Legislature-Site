@@ -19,7 +19,7 @@ const NavigationBar = () => {
   ];
 
   return (
-    <div className="h-14 w-screen bg-primary-800 text-xl md:text-lg text-secondary-800 font-semibold flex">
+    <div className="h-14 w-screen bg-primary-800 text-xl md:text-lg text-secondary-800 font-semibold flex fixed">
       <div className="w-1/3 flex justify-center h-full">
         <a href="/" className="h-full w-full flex place-content-center text-2xl">
           <h1 className="my-auto w-min h-min">BCopen</h1>
