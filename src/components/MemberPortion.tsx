@@ -14,7 +14,7 @@ interface specificMLAData {
 const MemberPortion = (props: {mlaData: specificMLAData}) => {
   const { mlaData } = props;
   return (
-    <a href={`/mlas/${mlaData.abreviated_name}`.toLowerCase()} className="flex flex-row w-max hover:underline">
+    <a href={`/mlas/${mlaData.abreviated_name}`} className="flex flex-row w-max hover:underline">
       <img className="border-4 border-black-800 h-44" src={mlaData.image} alt={`${mlaData.name}'s Icon`} />
       <div className="w-52 ml-3 my-auto h-fit">
         <h1 className="text-link text-xl font-semibold">{mlaData.name}</h1>
