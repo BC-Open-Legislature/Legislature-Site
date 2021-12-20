@@ -1,9 +1,16 @@
-import 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import { AppProps } from 'next/app';
 
+import NavigationBar from '../components/NavigationBar';
 import '../styles/globals.css';
 
-const MyApp = function ({ Component, pageProps }) {
-  return <Component {...pageProps} />;
-};
+const MainApp = ({ Component, pageProps }: AppProps) => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <div className="bg-secondary-900 font-helvetica flex flex-col h-screen">
+    <NavigationBar />
+    <Component {...pageProps} />
+  </div>
+);
 
-export default MyApp;
+export default MainApp;

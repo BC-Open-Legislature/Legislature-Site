@@ -3,6 +3,9 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    fontFamily: {
+      helvetica: ['Helvetica\\ Neue', 'Arial', 'sans-serif'],
+    },
     extend: {
       colors: {
         primary: {
