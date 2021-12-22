@@ -24,7 +24,7 @@ const MemberPage = (props: { memberData: memberDataInterface }) => {
       <div className="max-w-6xl w-full h-min font-bold text-4xl grid grid-cols-5 gap-4 main-col mx-auto mb-5">
         <h1 className="main-col-main col-span-3">{memberData.name}</h1>
       </div>
-      <div className="max-w-6xl w-full h-min grid grid-cols-5 gap-4 main-col mx-auto mb-5 text-2xl">
+      <div className="max-w-6xl w-full h-min grid grid-cols-5 gap-4 main-col mx-auto mb-5 text-lg">
         <div className="main-col-sidebar">
           <img className="w-5/6 mx-auto border-4 border-black-800" src={memberData.image} alt="Profile Icon" />
         </div>
