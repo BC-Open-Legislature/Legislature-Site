@@ -2,12 +2,13 @@ import React from 'react';
 
 import { apiURL } from '../../constants/constants';
 
+const outputDateOptions: Intl.DateTimeFormatOptions = {
+  month: 'long',
+  day: 'numeric',
+};
+
 const DebatesPage = (props: { recentDebates: string[], archiveYears: string[] }) => {
   const { recentDebates, archiveYears } = props;
-  const outputDateOptions: Intl.DateTimeFormatOptions = {
-    month: 'long',
-    day: 'numeric',
-  };
 
   return (
     <div className="h-full flex flex-col gap-2 text-black-800 m-12 font-light">
