@@ -28,12 +28,12 @@ const DebatesPage = (props: { archiveMonths: string[][] }) => {
             <div className="main-col-main col-span-3 text-lg grid grid-cols-4">
               {month.map((date) => {
                 const yearDate = +date.substring(0, 4);
-                const monthDate = +date.substring(4, 6);
+                const monthDate = +date.substring(4, 6) - 1;
                 const dayDate = +date.substring(6, 8);
                 const debateDate = new Date(yearDate, monthDate, dayDate);
 
                 // SOURCE: https://stackoverflow.com/questions/15397372
-                return (<a href={`/debates/${yearDate}/${monthDate}/${dayDate}`} className="pb-4 text-link font-bold hover:underline">{`${debateDate.toLocaleDateString('en-US', outputDateOptions)}${['th', 'st', 'nd', 'rd'][(dayDate > 3 && dayDate < 21) || dayDate % 10 > 3 ? 0 : dayDate % 10]}`}</a>);
+                return (<a href={`/debates/${yearDate}/${monthDate + 1}/${dayDate}`} className="pb-4 text-link font-bold hover:underline">{`${debateDate.toLocaleDateString('en-US', outputDateOptions)}${['th', 'st', 'nd', 'rd'][(dayDate > 3 && dayDate < 21) || dayDate % 10 > 3 ? 0 : dayDate % 10]}`}</a>);
               })}
             </div>
           </div>

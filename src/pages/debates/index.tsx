@@ -30,13 +30,13 @@ const DebatesPage = (props: { recentDebates: string[], archiveYears: string[] })
         <div className="main-col-main col-span-3 text-lg grid grid-cols-4">
           {recentDebates.map((debateIndex) => {
             const year = +debateIndex.substring(0, 4);
-            const month = +debateIndex.substring(4, 6);
+            const month = +debateIndex.substring(4, 6) - 1;
             const day = +debateIndex.substring(6, 8);
             const debateDate = new Date(year, month, day);
 
             // SOURCE: https://stackoverflow.com/questions/15397372
             return (
-              <a href={`/debates/${year}/${month}/${day}`} className="pb-4 text-link font-bold hover:underline">
+              <a href={`/debates/${year}/${month + 1}/${day}`} className="pb-4 text-link font-bold hover:underline">
                 {`${debateDate.toLocaleDateString('en-US', outputDateOptions)}${['th', 'st', 'nd', 'rd'][(day > 3 && day < 21) || day % 10 > 3 ? 0 : day % 10]}`}
               </a>
             );
