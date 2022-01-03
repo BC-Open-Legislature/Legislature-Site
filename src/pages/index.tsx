@@ -37,7 +37,11 @@ const IndexPage = () => (
       <h1 className="main-col-sidebar text-3xl text-black-600">Recent votes</h1>
     </div>
     {/* FIXME: Check the tailwind docs so i don't have to do this */}
-    <div className="bg-party-green bg-party-ndp bg-party-liberals bg-party-other bg-party-independent"/>
+    <div className="bg-party-green" />
+    <div className="bg-party-ndp" />
+    <div className="bg-party-liberal" />
+    <div className="bg-party-other" />
+    <div className="bg-party-independent" />
   </div>
 );
 

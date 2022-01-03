@@ -8,8 +8,8 @@ interface debatesDateInterface {
   short_name: string,
   image: string,
   name: string,
-  event: string,
-  sub_event: string,
+  proceedingHeading: string,
+  procedureHeading: string,
   time: string,
   party: string,
   location: string,
@@ -27,8 +27,8 @@ const DateDebatesPage = (props: { debatesDateData: debatesDateInterface[] }) => 
             short_name={debateEvent.short_name}
             name={debateEvent.name}
             text={debateEvent.text}
-            event={debateEvent.event}
-            sub_event={debateEvent.sub_event}
+            event={debateEvent.proceedingHeading}
+            sub_event={debateEvent.procedureHeading}
             time={debateEvent.time}
             location={debateEvent.location}
             party={debateEvent.party}

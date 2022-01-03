@@ -43,7 +43,7 @@ module.exports = {
         party: {
           green: '#b1f492',
           ndp: '#f4c192',
-          liberals: '#9296f4',
+          liberal: '#9296f4',
           other: '#d592f4',
           independent: '#b7b7b7',
         },

@@ -17,9 +17,9 @@ interface debatesDateInterface {
 
 // FIXME: Find the correct naming conventions I used before when I get wifi
 const partyToColour = {
-  green: 'green',
-  'bc ndp': 'ndp',
-  'bc liberals': 'liberals',
+  'BC Green Party': 'green',
+  'BC NDP': 'NDP',
+  'BC Liberal Party': 'liberal',
   independent: 'independent',
 };
 
@@ -48,7 +48,7 @@ const DebatePortion = (props: debatesDateInterface) => {
         <h1 className="text-center font-bold text-lg">{event}</h1>
         <h1 className="text-center font-medium text-base">{subEvent}</h1>
         <h1 className="text-center pb-2">{dateTime.toLocaleDateString('en-US', { hour: 'numeric', minute: '2-digit' }).split(', ')[1]}</h1>
-        <Tag className={`bg-party-${partyToColour[party] ?? 'other'}`} name={partyToColour[party] ?? 'other'} />
+        <Tag className={`bg-party-${partyToColour[party] ?? 'other'}`.toLowerCase()} name={partyToColour[party] ?? 'other'} />
       </div>
       <div className="main-col-main col-span-3">
         <a href={`/mlas/${shortName}`} className="font-bold text-link text-lg hover:underline max-w-2xl">{`${name} | ${location}`}</a>
