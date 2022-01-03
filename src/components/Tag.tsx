@@ -8,7 +8,7 @@ interface tagProps {
 const Tag = (props: tagProps) => {
   const { className, name } = props;
   return (
-    <div className={`px-2 rounded-md w-min mx-auto font-bold text-black-700 ${className}`}>
+    <div className={`px-2 rounded-md w-min mx-auto font-bold text-black-700 capitalize ${className}`}>
       {name}
     </div>
   );

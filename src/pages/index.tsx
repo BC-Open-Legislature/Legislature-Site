@@ -36,6 +36,8 @@ const IndexPage = () => (
     <div className="max-w-6xl w-full h-min grid grid-cols-5 gap-4 main-col mx-auto">
       <h1 className="main-col-sidebar text-3xl text-black-600">Recent votes</h1>
     </div>
+    {/* FIXME: Check the tailwind docs so i don't have to do this */}
+    <div className="bg-party-green bg-party-ndp bg-party-liberals bg-party-other bg-party-independent"/>
   </div>
 );
 
