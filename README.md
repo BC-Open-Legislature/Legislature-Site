@@ -2,11 +2,9 @@
   <img src="./images/Logo.png" height="200"/>
 </p>
 
-<h2 align="center">
+<h1 align="center">
   BC Open Legislature
-</h2>
-
-***
+</h1>
 
 ## About
 This is a site that works to scrape [the legislative site](https://leg.bc.ca) and republish it in a more human readable and searchable format
