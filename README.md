@@ -12,7 +12,7 @@ This is a site that works to scrape [the legislative site](https://leg.bc.ca) an
 ## Features
 * Debates page
   * Fully republishes and scrapes the current hansard debates
-  ![](./images/Screenshots/Debates%20Page.png)
+  ![](./images/Screenshots/Debates%20Page%20Updated.png)
   * Fully indexes recent debates and republishes them in a more easy to access ways
   ![](./images/Screenshots/Debates%20Index%20Page.png)
 * MLA's Page
