@@ -22,21 +22,21 @@ This is a site that works to scrape [the legislative site](https://leg.bc.ca) an
   ![](./images/Screenshots/Specific%20Member%20Page.png)
 
 ## Planned Features
-* Bills Page
-  * Add a page for displaying bill data like [open parliament](https://openparliament.ca/bills)
-* Votes Page
-  * Add a page for display recent votes like [open parliament](https://openparliament.ca/votes)
+* Important
+  * Bills Page
+    * Add a page for displaying bill data like [open parliament](https://openparliament.ca/bills)
+  * Votes Page
+    * Add a page for display recent votes like [open parliament](https://openparliament.ca/votes)
+  * Add Proper Mobile Support
+    * Add the proper CSS so that the site can work on mobile and look decent
 <br />
 
-* Recent Activity
-  * Add member recent activity when it's scraped so that it can be more easily found
-* Searching
-  * Allow users to easily search the data on the site
-* API Documentation
-  * Make it easier for developers to use the data we scrape
-<br />
-
-* Add Proper Mobile Support
-  * Add the proper CSS so that the site can work on mobile and look decent
+* Nice To Have
+  * Recent Activity
+    * Add member recent activity when it's scraped so that it can be more easily found
+  * Searching
+    * Allow users to easily search the data on the site
+  * API Documentation
+    * Make it easier for developers to use the data we scrape
 
 ---
