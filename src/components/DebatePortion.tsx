@@ -6,11 +6,11 @@ import Tag from './Tag';
 interface debatesDateInterface {
   time: string,
   text: string,
-  short_name: string,
+  shortName: string,
   image: string,
   name: string,
   event: string,
-  sub_event: string,
+  subEvent: string,
   location: string,
   party: string,
 }
@@ -27,11 +27,11 @@ const DebatePortion = (props: debatesDateInterface) => {
   const {
     time,
     text,
-    short_name: shortName,
+    shortName,
     image,
     name,
     event,
-    sub_event: subEvent,
+    subEvent,
     location,
     party,
   } = props;
