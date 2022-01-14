@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { apiURL } from '../../constants/constants';
+import { getRecentDebatesIndexes, getDebatesYearlyIndexes } from '../../lib/debatesFetcher';
 
 const outputDateOptions: Intl.DateTimeFormatOptions = {
   month: 'long',
@@ -56,13 +56,12 @@ const DebatesPage = (props: { recentDebates: string[], archiveYears: string[] })
 };
 
 export async function getServerSideProps() {
-  const debatesRes = await fetch(`${apiURL}/debates`);
-  const debatesJSON = await debatesRes.json();
-
-  const archiveRes = await fetch(`${apiURL}/debates/indexes`);
-  const archiveYears = await archiveRes.json();
-
-  return { props: { recentDebates: debatesJSON, archiveYears } };
+  return {
+    props: {
+      recentDebates: await getRecentDebatesIndexes(),
+      archiveYears: await getDebatesYearlyIndexes(),
+    },
+  };
 }
 
 export default DebatesPage;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { apiURL } from '../../constants/constants';
+import { getActiveMembers } from '../../lib/mlaFetcher';
 import MemberPortion from '../../components/MemberPortion';
 
 interface specificMLAData {
@@ -34,9 +34,8 @@ const MLAPage = (props: { mlaData: specificMLAData[] }) => {
 };
 
 export async function getServerSideProps() {
-  const res = await fetch(`${apiURL}/mla`);
-  const mlaJSON = await res.json();
-  const mlaData = mlaJSON.map((mla: specificMLAData) => (
+  const mlaData = await getActiveMembers();
+  const mlaParsedData = mlaData.map((mla: specificMLAData) => (
     {
       abreviated_name: mla.abreviated_name,
       name: mla.name,
@@ -49,7 +48,7 @@ export async function getServerSideProps() {
     }
   ));
 
-  return { props: { mlaData } };
+  return { props: { mlaData: mlaParsedData } };
 }
 
 export default MLAPage;
