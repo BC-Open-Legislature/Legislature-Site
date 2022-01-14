@@ -43,7 +43,7 @@ const DebatePortion = (props: debatesDateInterface) => {
     <div id={time} className="max-w-6xl w-full h-min grid grid-cols-5 gap-4 main-col mx-auto pb-8">
       <div className="flex flex-col justify-center main-col-sidebar h-max">
         <a href={`/mlas/${shortName}`} className="flex justify-center">
-          <img className="border-4 border-black-800 h-44" src={image} alt={`${name}`} />
+          <img className="border-4 border-black-800 h-44" src={image !== '' ? image : '/default_image.svg'} alt={`${name}`} />
         </a>
         <h1 className="text-center font-bold text-lg">{event}</h1>
         <h1 className="text-center font-medium text-base">{subEvent}</h1>
@@ -51,7 +51,11 @@ const DebatePortion = (props: debatesDateInterface) => {
         <Tag className={`bg-party-${partyToColour[party] ?? 'other'}`.toLowerCase()} name={partyToColour[party] ?? 'other'} />
       </div>
       <div className="main-col-main col-span-3">
-        <a href={`/mlas/${shortName}`} className="font-bold text-link text-lg hover:underline max-w-2xl">{`${name} | ${location}`}</a>
+        {
+          image !== '' 
+            ? <a href={`/mlas/${shortName}`} className="font-bold text-link text-lg hover:underline max-w-2xl">{`${name} | ${location}`}</a>
+            : <h1 className="font-bold text-link text-lg max-w-2xl">{`${name} | ${location}`}</h1>
+        }
         <h1 className="max-w-2xl">{text}</h1>
       </div>
       <div className="main-col-main align-self-top justify-self-end">
