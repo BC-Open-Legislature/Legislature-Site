@@ -52,7 +52,7 @@ const DebatePortion = (props: debatesDateInterface) => {
       </div>
       <div className="main-col-main col-span-3">
         {
-          image !== '' 
+          image !== ''
             ? <a href={`/mlas/${shortName}`} className="font-bold text-link text-lg hover:underline max-w-2xl">{`${name} | ${location}`}</a>
             : <h1 className="font-bold text-link text-lg max-w-2xl">{`${name} | ${location}`}</h1>
         }
