@@ -1,4 +1,10 @@
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
 import DebatesModel from './models/debate_day';
+
+dotenv.config();
+mongoose.connect(process.env.MONG_PSWRD);
 
 const getRecentDebatesIndexes = async () => {
   const debateIndexes = (await DebatesModel.find({}, 'date').sort({ date: -1 }).limit(16)).flatMap((x) => x.date);

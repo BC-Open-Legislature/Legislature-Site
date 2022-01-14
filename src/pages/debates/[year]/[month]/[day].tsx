@@ -2,8 +2,8 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { useRouter } from 'next/router';
 
-import { apiURL } from '../../../../constants/constants';
 import DebatePortion from '../../../../components/DebatePortion';
+import { getDebateDataByIndex } from '../../../../lib/debatesFetcher';
 
 interface debatesDateInterface {
   text: string,
@@ -90,10 +90,17 @@ export async function getServerSideProps({ query }) {
   const debateDate = new Date(year, month - 1, day);
   const formattedDebateDate = `${debateDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}${['th', 'st', 'nd', 'rd'][(day > 3 && day < 21) || day % 10 > 3 ? 0 : day % 10]}, ${year}`;
 
-  const debatesDateRes = await fetch(`${apiURL}/debates/${year}${month}${day}?page=${+(page ?? 0) + 1}`);
-  const debatesDateData = await debatesDateRes.json();
+  const debateData = await getDebateDataByIndex(
+    +(page ?? 0) + 1,
+    +`${year}${month}${day}`,
+  );
 
-  return { props: { debatesDateData, debateDate: formattedDebateDate } };
+  return ({
+    props: {
+      debatesDateData: JSON.parse(JSON.stringify(debateData)),
+      debateDate: formattedDebateDate,
+    },
+  });
 }
 
 export default DateDebatesPage;
