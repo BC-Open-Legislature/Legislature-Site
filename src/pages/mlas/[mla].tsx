@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { apiURL } from '../../constants/constants';
+import { getSpecificMember } from '../../lib/mlaFetcher';
 
 interface memberDataInterface {
   abreviated_name: string,
@@ -51,9 +51,8 @@ const MemberPage = (props: { memberData: memberDataInterface }) => {
 export async function getServerSideProps({ query }) {
   const { mla } = query;
 
-  const memberData = await fetch(`${apiURL}/mla/${mla}`);
-  const memberJSON = await memberData.json();
-  return { props: { memberData: memberJSON } };
+  const memberData = await getSpecificMember(mla);
+  return { props: { memberData: JSON.parse(JSON.stringify(memberData)) } };
 }
 
 export default MemberPage;
