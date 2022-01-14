@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import { apiURL } from '../../../constants/constants';
+import { getDebateIndexesByYear } from '../../../lib/debatesFetcher';
 
 const outputDateOptions: Intl.DateTimeFormatOptions = {
   month: 'long',
@@ -46,10 +46,11 @@ const DebatesPage = (props: { archiveMonths: string[][] }) => {
 export async function getServerSideProps({ query }) {
   const { year } = query;
 
-  const archiveRes = await fetch(`${apiURL}/debates/indexes/${year}`);
-  const archiveMonths = await archiveRes.json();
-
-  return { props: { archiveMonths } };
+  return {
+    props: {
+      archiveMonths: await getDebateIndexesByYear(+year),
+    },
+  };
 }
 
 export default DebatesPage;
