@@ -26,7 +26,7 @@ const MemberPage = (props: { memberData: memberDataInterface }) => {
       </div>
       <div className="max-w-6xl w-full h-min grid grid-cols-5 gap-4 main-col mx-auto mb-5 text-lg">
         <div className="main-col-sidebar">
-          <img className="sm:w-5/6 w-3/6  mx-auto border-4 border-black-800" src={memberData.image} alt="Profile Icon" />
+          <img className="lg:w-5/6 w-44 mx-auto border-4 border-black-800" src={memberData.image} alt="Profile Icon" />
         </div>
         <div className="main-col-main">
           <h1 className="font-bold">{`${memberData.member_data.party} MLA for ${memberData.member_data.location}`}</h1>
