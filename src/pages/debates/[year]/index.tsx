@@ -14,7 +14,7 @@ const DebatesPage = (props: { archiveMonths: string[][] }) => {
   const { year } = router.query;
 
   return (
-    <div className="h-full flex flex-col gap-2 text-black-800 m-12 font-light">
+    <div className="h-full flex flex-col gap-2 text-black-800 sm:m-12 mx-12 font-light">
       <div className="max-w-6xl w-full h-min font-bold text-4xl grid grid-cols-5 gap-4 main-col mx-auto mb-5">
         <h1 className="main-col-main col-span-3 max-w-2xl">{`Debates from ${year}`}</h1>
       </div>
@@ -25,7 +25,7 @@ const DebatesPage = (props: { archiveMonths: string[][] }) => {
             <div className="max-w-6xl w-full h-min grid grid-cols-5 gap-4 main-col mx-auto">
               <h1 className="main-col-sidebar text-3xl text-black-600">{new Date(0, +index).toLocaleString('default', { month: 'long' })}</h1>
             </div>
-            <div className="main-col-main col-span-3 text-lg grid grid-cols-4">
+            <div className="main-col-main col-span-3 text-lg grid sm:grid-cols-4">
               {month.map((date) => {
                 const yearDate = +date.substring(0, 4);
                 const monthDate = +date.substring(4, 6) - 1;

@@ -32,7 +32,7 @@ const DateDebatesPage = (
   } = router.query;
 
   return (
-    <div className="h-full flex flex-col gap-2 text-black-800 m-12 font-light">
+    <div className="h-full flex flex-col gap-2 text-black-800 sm:m-12 mx-12 font-light">
       <div className="max-w-6xl w-full h-min font-bold text-4xl grid grid-cols-5 gap-4 main-col mx-auto mb-5">
         <h1 className="main-col-main col-span-3 max-w-2xl">{`Debates of ${debateDate}`}</h1>
       </div>
@@ -56,9 +56,34 @@ const DateDebatesPage = (
         activeLinkClassName="hover:cursor-default"
         disabledLinkClassName="hover:cursor-not-allowed text-secondary-500"
         pageClassName="text-center hover:underline"
-        containerClassName="flex gap-3 justify-center font-semibold main-col-main col-span-3 mb-5"
+        containerClassName="sm:flex gap-3 justify-center font-semibold main-col-main col-span-3 mb-5 hidden"
         previousClassName="hover:underline"
         nextClassName="hover:underline"
+      />
+      <ReactPaginate
+        previousLabel="&#xab; Previous"
+        nextLabel="Next &#xbb;"
+        pageCount={length}
+        initialPage={+page}
+        marginPagesDisplayed={0}
+        onPageChange={
+          ({ selected }) => {
+            router.push({
+              query: {
+                page: selected, year, month, day,
+              },
+            });
+          }
+        }
+        hrefBuilder={(hrefPage, pageCount) => (hrefPage >= 1 && hrefPage <= pageCount ? `?page=${hrefPage - 1}` : '#')}
+        activeClassName="bg-link px-2 text-center text-secondary-800 hover:cursor-default hover:no-underline"
+        activeLinkClassName="hover:cursor-default"
+        disabledLinkClassName="hover:cursor-not-allowed text-secondary-500"
+        pageClassName="text-center hover:underline"
+        containerClassName="flex gap-3 justify-center font-semibold main-col-main col-span-3 mb-5 sm:hidden"
+        previousClassName="hover:underline"
+        nextClassName="hover:underline"
+        breakLabel=""
       />
       {
         data.map((debateEvent) => (

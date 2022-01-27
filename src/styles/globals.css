@@ -3,14 +3,19 @@
 @tailwind utilities;
 
 .main-col {
-  grid-template-areas: 
-    "sidebar main main main main"
+  grid-template-areas: "sidebar main main main main";
 }
 
 .main-col-sidebar {
-  grid-area: sidebar
+  grid-area: sidebar;
 }
 
 .main-col-main {
-  grid-area: main
+  grid-area: main;
+}
+
+@media only screen and (max-width: 850px) {
+  .main-col {
+    grid-template-areas: "sidebar sidebar sidebar sidebar sidebar" "main  main main main main";
+  }
 }
