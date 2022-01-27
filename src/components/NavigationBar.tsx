@@ -34,7 +34,7 @@ const NavigationBar = () => {
           <path d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1z" />
         </svg>
       </button>
-      <div className={`${!isMenuOpen || 'hidden'} flex flex-col w-full fixed px-7 pb-4 mt-14 bg-primary-800`}>
+      <div className={`${isMenuOpen || 'hidden'} sm:hidden flex flex-col w-full fixed px-7 pb-4 mt-14 bg-primary-800`}>
         {
           routes.map((route) => (
             <a
