@@ -27,8 +27,6 @@ This is a site that works to scrape [the legislative site](https://leg.bc.ca) an
     * Add a page for displaying bill data like [open parliament](https://openparliament.ca/bills)
   * Votes Page
     * Add a page for display recent votes like [open parliament](https://openparliament.ca/votes)
-  * Add Proper Mobile Support
-    * Add the proper CSS so that the site can work on mobile and look decent
 <br />
 
 * Nice To Have
